@@ -11,7 +11,7 @@ var DelayTurtle;
 
 function setup() {
     logo = new Logo();
-    
+
     fast = 5;
     turtle = new DelayTurtle(canvas, sprite, fast, false);
     logo.setTurtle(turtle);
@@ -27,10 +27,10 @@ function init(canvas_id, turtle_id, form_id, oldcode_id, textoutput_id) {
     // I hate opera, I hate firefox.
     canvas.style.width = 500;
     canvas.width = 500;
-    
+
     canvas.style.height = 500;
     canvas.height = 500;
-    
+
     oldcode = document.getElementById(oldcode_id);
     setup();
 }
@@ -41,17 +41,17 @@ function run(speed, drawbits) {
         fast = speed;
         var newturtle = null;
         // newturtle = new Turtle(canvas);
-        
+
         newturtle = new DelayTurtle(canvas, sprite, fast, drawbits);
         logo.setTurtle(newturtle);
         turtle = newturtle;
     }
-  
+
     oldcode.innerHTML += "\n" + form.code.value;
     //form.code.value = ""
-  
+
     out = logo.run(form.code.value);
-            
+
     if (out && out.type === "error") {
         alert(out.data);
         setup();
